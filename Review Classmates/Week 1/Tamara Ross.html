@@ -29,36 +29,44 @@
         <div class="row row-content" ng-controller="dishDetailController as dishCtrl">
             <div class="col-xs-12">
                 <div class="media">
-                    <div class="media-left media-middle">
-                        <a href="#">
-                        <img class="media-object img-thumbnail"
-                         ng-src={{dishCtrl.dish.image}} alt="Uthappizza">
-                        </a>
+                        <div class="media-left media-middle">
+                            <a href="#">
+                            <img class="media-object img-thumbnail"
+                             ng-src={{dishCtrl.dish.image}} alt="{{dishCtrl.dish.name}}">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">{{dishCtrl.dish.name}}
+                             <span class="label label-danger">{{dishCtrl.dish.label}}</span>
+                             <span class="badge">{{dishCtrl.dish.price | currency}}</span></h2>
+                            <p>{{dishCtrl.dish.description}}</p>
+                            
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <h2 class="media-heading">{{dishCtrl.dish.name}}
-                         <span class="label label-danger">{{dishCtrl.dish.label}}</span>
-                         <span class="badge">{{dishCtrl.dish.price | currency}}</span></h2>
-                        <p>{{dishCtrl.dish.description}}</p>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
               <div class="row">
-                <div class="col-xs-3">
-                  <h4>Customer Comments</h4>
+                <div class="col-xs-12 col-sm-4">
+                  <h3 style="margin-top:10px;">Customer Comments</h3>
                 </div>
-                <div class="col-xs-6 voffset1">
-                  <span>Sort by:</span>
-                  <input type="text" ng-model="filterBy">
+                <div class="col-xs-12 col-sm-8">
+                  <p style="margin-top:10px;">Sort by: <input type="text" ng-model="sortBy"></p>
                 </div>
               </div>
-
-                <blockquote ng-repeat="comment in dishCtrl.dish.comments | orderBy:filterBy">
-                  <p>{{comment.rating}} Star</p>
-                  <p>{{comment.comment}}</p>
-                  <footer>{{comment.author}}, {{comment.date | date}}</footer>
-                </blockquote>
+              
+                <ul>
+                    <li class="media" ng-repeat="comment in dishCtrl.dish.comments | orderBy:sortBy">
+                        <blockquote>
+                          <p>
+                            {{comment.rating}} Stars
+                          </p>
+                          <p>
+                            {{comment.comment}}
+                          </p>
+                          <footer>{{comment.author}}, {{comment.date | date:'MMM. dd, yyyy'}}</footer>
+                        </blockquote>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -68,13 +76,13 @@
     <script>
 
         var app = angular.module('confusionApp',[]);
-
+        
         app.controller('dishDetailController', function() {
 
             var dish={
                           name:'Uthapizza',
                           image: 'images/uthapizza.png',
-                          category: 'mains',
+                          category: 'mains', 
                           label:'Hot',
                           price:'4.99',
                           description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
@@ -109,12 +117,12 @@
                                    author:"25 Cent",
                                    date:"2011-12-02T17:57:28.556094Z"
                                }
-
+                               
                            ]
                     };
-
+            
             this.dish = dish;
-
+            
         });
 
     </script>
