@@ -72,54 +72,57 @@
                         <!--<p>The comment should be shown only when the form contains valid-->
                         <!--information and is not pristine</p>-->
                         <blockquote>
-                          <p>{{commentData.rating}} Star</p>
-                          <p>{{commentData.comment}}</p>
-                          <footer>{{commentData.author}}, {{commentData.date | date}}</footer>
+                          <p>{{myComment}}</p>
+                          <p>{{myComment.rating}} Star</p>
+                          <p>{{myComment.comment}}</p>
+                          <footer>{{myComment.author}}, {{myComment.date | date}}</footer>
                         </blockquote>
                         <!-- End -->
 
                     </ul>
-                    <form class="form-horizontal" name="commentForm"
+
+                    <form class="form-horizontal my-form" name="commentForm"
                         ng-submit="submitComment()" novalidate>
 
                         <!--<p>Task 1: Design the form to submit the comments</p>-->
                         <!--<p>Task 2: You need to validate that the user name and comments are entered</p>-->
 
-                        <div class="form-group" ng-class="{ 'has-error' : commentForm.name.$error.required && !commentForm.name.$pristine }">
+                        <div class="form-group" ng-class="{ 'has-error' : commentForm.author.$error.required && !commentForm.author.$pristine }">
                             <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
-                                       ng-model="feedback.name" required>
-                                <span ng-show="commentForm.name.$error.required && !commentForm.name.$pristine" class="help-block">Your name is required.</span>
+                                       ng-model="myComment.author" required>
+                                <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Your name is required.</span>
                             </div>
                         </div>
 
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-click="setRating(1)"> 1
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-click="setRating(2)"> 2
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-click="setRating(3)"> 3
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3" ng-click="setRating(4)"> 4
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3" ng-click="setRating(5)"> 5
-                          </label>
-                        </div>
-                      </div>
-
                         <div class="form-group">
-                            <label for="feedback" class="col-sm-2 control-label">Your Feedback</label>
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="myComment.rating" ng-click="setRating(1)"> 1
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="myComment.rating" ng-click="setRating(2)"> 2
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" ng-model="myComment.rating" ng-click="setRating(3)"> 3
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" ng-model="myComment.rating" ng-click="setRating(4)"> 4
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" ng-model="myComment.rating" ng-click="setRating(5)"> 5
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error' : commentForm.comment.$error.required && !commentForm.comment.$pristine }">
+                            <label for="comment" class="col-sm-2 control-label">Your Feedback</label>
                             <div class="col-sm-10">
-                              <textarea class="form-control" rows="12"
-                                        ng-model="commentData.comments" required>
+                              <textarea class="form-control" rows="12"  id="comment" name="comment"
+                                        ng-model="myComment.comment" required>
                               </textarea>
+                              <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Your comments are required.</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -128,7 +131,6 @@
                             </div>
                         </div>
                         <!-- End -->
-
                     </form>
             </div>
 
@@ -138,7 +140,7 @@
         </div>
     </div>
 
-<script src="scripts/main-a646ef9060.js"></script>
+<script src="scripts/main-0dd8c2c3c2.js"></script>
 
 </body>
 
