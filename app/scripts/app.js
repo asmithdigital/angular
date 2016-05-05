@@ -167,7 +167,7 @@ angular.module('confusionApp', [])
                 $scope.commentForm.$setPristine();
 
                 //Step 5: reset your JavaScript object that holds your comment
-                $scope.myComment = {rating: 5, author: "", comment: ""};
+                $scope.myComment = {rating: 5, author: "", comment: "", date: ""};
 
                 console.log($scope.myComment);
             }
