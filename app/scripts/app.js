@@ -106,7 +106,7 @@ angular.module('confusionApp', [])
 
         .controller('DishDetailController', ['$scope', function($scope) {
 
-            var dish={
+          $scope.dish={
                           name:'Uthapizza',
                           image: 'images/uthapizza.png',
                           category: 'mains', 
@@ -147,26 +147,18 @@ angular.module('confusionApp', [])
                                
                            ]
                     };
-            
-            $scope.dish = dish;
-           
+
         }])
 
         .controller('DishCommentController', ['$scope', function($scope) {
 
-            $scope.rating = 5;
-            $scope.myComment = {rating: 5, author: "", comment: ""};
-
-            $scope.setRating = function(rate) {
-              $scope.myComment.rating = rate;
-            };
-
             //Step 1: Create a JavaScript object to hold the comment from the form
+            $scope.myComment = {rating: 5, author: "", comment: "", date: ""};
             
             $scope.submitComment = function () {
                 
                 //Step 2: This is how you record the date
-                //"The date property of your JavaScript object holding the comment" = new Date().toISOString();
+                $scope.myComment.date = new Date().toISOString();
                 
                 // Step 3: Push your comment into the dish's comment array
                 $scope.dish.comments.push($scope.myComment);

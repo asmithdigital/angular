@@ -71,8 +71,7 @@
                         <!--<p>Task 3: Here you include the code to show the live preview of the comment</p>-->
                         <!--<p>The comment should be shown only when the form contains valid-->
                         <!--information and is not pristine</p>-->
-                        <blockquote>
-                          <p>{{myComment}}</p>
+                        <blockquote ng-show="commentForm.$valid && !commentForm.$pristine">
                           <p>{{myComment.rating}} Star</p>
                           <p>{{myComment.comment}}</p>
                           <footer>{{myComment.author}}, {{myComment.date | date}}</footer>
@@ -99,19 +98,19 @@
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
                             <label class="radio-inline">
-                              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="myComment.rating" ng-click="setRating(1)"> 1
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="myComment.rating"> 1
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="myComment.rating" ng-click="setRating(2)"> 2
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="myComment.rating"> 2
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" ng-model="myComment.rating" ng-click="setRating(3)"> 3
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" ng-model="myComment.rating"> 3
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" ng-model="myComment.rating" ng-click="setRating(4)"> 4
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" ng-model="myComment.rating"> 4
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" ng-model="myComment.rating" ng-click="setRating(5)"> 5
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" ng-model="myComment.rating"> 5
                             </label>
                           </div>
                         </div>
@@ -140,7 +139,7 @@
         </div>
     </div>
 
-<script src="scripts/main-0dd8c2c3c2.js"></script>
+<script src="scripts/main-8bc9e54032.js"></script>
 
 </body>
 
