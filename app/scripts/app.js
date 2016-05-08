@@ -169,7 +169,6 @@ angular.module('confusionApp', [])
                 //Step 5: reset your JavaScript object that holds your comment
                 $scope.myComment = {rating: 5, author: "", comment: "", date: ""};
 
-                console.log($scope.myComment);
             }
         }])
 
