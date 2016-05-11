@@ -97,7 +97,7 @@ angular.module('confusionApp')
 
   .controller('IndexController', ['$scope', 'corporateFactory', 'menuFactory', function($scope, corporateFactory, menuFactory){
 
-    $scope.leaders = corporateFactory.getLeader(3);
+    $scope.leader = corporateFactory.getLeader(3);
 
     $scope.promotion = menuFactory.getPromotion(0);
 
@@ -106,7 +106,9 @@ angular.module('confusionApp')
 
   }])
 
-  .controller('AboutController', ['$scope', function($scope, $stateParams){
+  .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory){
+
+    $scope.leaders = corporateFactory.getLeaders();
 
   }])
 
