@@ -5,7 +5,22 @@
       <h3 align=center>Our Lipsmacking Culinary Creations</h3>
     </div>
     <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-      <h4>Implement the Featured Dish Here</h4>
+      <!--<h4>Implement the Featured Dish Here</h4>-->
+
+      <div class="media-left media-middle">
+        <a ui-sref="app.dishdetails({id: feature._id})">
+          <img class="media-object img-thumbnail"
+               ng-src={{feature.image}} alt="Uthappizza">
+        </a>
+      </div>
+      <div class="media-body">
+        <h2 class="media-heading">{{feature.name}}
+          <span class="label label-danger">{{feature.label}}</span>
+          <span class="badge">{{feature.price | currency}}</span></h2>
+          <p>{{feature.description}}</p>
+      </div>
+
+
     </div>
   </div>
 
@@ -16,7 +31,23 @@
       <h3 align=center>This Month's Promotions</h3>
     </div>
     <div class="col-xs-12 col-sm-9">
-      <h4>Implement the Promotion Here</h4>
+      <!--<h4>Implement the Promotion Here</h4>-->
+
+      <ul class="media-list tab-pane fade in active">
+        <li class="media">
+          <div class="media-body">
+            <h2 class="media-heading">{{promotion.name}}
+              <span class="label label-danger">{{promotion.label}}</span>
+              <span class="badge">{{promotion.price | currency}}</span></h2>
+              <p>{{promotion.description}}</p>
+          </div>
+          <div class="media-right media-middle">
+            <img class="media-object img-thumbnail"
+                 ng-src={{promotion.image}} alt="Uthappizza">
+          </div>
+        </li>
+      </ul>
+
     </div>
   </div>
 
@@ -26,7 +57,21 @@
       <h3 align=center>Meet our Culinary Specialists</h3>
     </div>
     <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-      <h4>Implement the Executive Chef Info Here</h4>
+      <!--<h4>Implement the Executive Chef Info Here</h4>-->
+
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-thumbnail" src="{{leaders.image}}" alt="">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{leaders.name}} <small>{{leaders.designation}}</small></h4>
+          {{leaders.description}}
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>
