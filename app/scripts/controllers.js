@@ -95,5 +95,13 @@ angular.module('confusionApp')
 
 // implement the IndexController and About Controller here
 
+  .controller('IndexController', ['$scope', function($scope, $stateParams){
+
+  }])
+
+  .controller('AboutController', ['$scope', function($scope, $stateParams){
+
+  }])
+
 
 ;
