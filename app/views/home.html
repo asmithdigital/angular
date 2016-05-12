@@ -20,7 +20,6 @@
           <p>{{feature.description}}</p>
       </div>
 
-
     </div>
   </div>
 
@@ -33,8 +32,8 @@
     <div class="col-xs-12 col-sm-9">
       <!--<h4>Implement the Promotion Here</h4>-->
 
-      <ul class="media-list tab-pane fade in active">
-        <li class="media">
+      <ul class="media-list">
+        <li class="media" ng-repeat="promotion in promotions">
           <div class="media-body">
             <h2 class="media-heading">{{promotion.name}}
               <span class="label label-danger">{{promotion.label}}</span>

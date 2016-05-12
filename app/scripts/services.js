@@ -205,8 +205,7 @@ angular.module('confusionApp')
 
       return promotions[index];
 
-    }
-
+    };
 
   })
 
@@ -257,6 +256,7 @@ angular.module('confusionApp')
     corpfac.getLeader = function(index) {
       return leadership[index];
     };
+
 
     return corpfac;
 
