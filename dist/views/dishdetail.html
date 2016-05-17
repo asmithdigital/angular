@@ -35,11 +35,11 @@
                 </div>
                 <div class="col-xs-6 voffset1">
                     <span>Sort by:</span>
-                    <input type="text" ng-model="filterBy">
+                    <input type="text" ng-model="orderText">
                 </div>
             </div>
 
-            <blockquote ng-repeat="comment in dish.comments | orderBy:filterBy">
+            <blockquote ng-repeat="comment in dish.comments | orderBy:orderText">
                 <p>{{comment.rating}} Star</p>
                 <p>{{comment.comment}}</p>
                 <footer>{{comment.author}}, {{comment.date | date}}</footer>
