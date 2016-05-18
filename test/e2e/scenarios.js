@@ -24,7 +24,7 @@ describe('index', function() {
 
 describe('menu 0 item', function() {
   beforeEach(function() {
-    browser.get('index.html#/menu/0');
+    browser.get('index.html#!/menu/0');
   });
 
   it('should have a name', function() {
@@ -41,9 +41,12 @@ describe('menu 0 item', function() {
   });
 
   it('should show the first comment author as', function() {
+
     element(by.model('orderText')).sendKeys('author');
+
     expect(element.all(by.repeater('comment in dish.comments'))
       .count()).toEqual(5);
+
     var author = element.all(by.repeater('comment in dish.comments'))
       .first().element(by.binding('comment.author'));
 
