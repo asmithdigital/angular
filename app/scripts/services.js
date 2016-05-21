@@ -28,4 +28,17 @@ angular.module('confusionApp')
 
   }])
 
+  .factory('feedbackFactory', ['$resource', 'baseURL', function($resource, baseURL) {
+
+    var feedfac = {};
+
+    feedfac.getFeedback = function() {
+      return $resource(baseURL+"feedback/:id",null,  {'update':{method:'PUT' }});
+    };
+
+    return feedfac;
+
+  }])
+
+
 ;
