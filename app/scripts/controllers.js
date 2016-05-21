@@ -97,14 +97,12 @@ angular.module('confusionApp')
   .controller('DishCommentController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
     $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-
     $scope.submitComment = function () {
       $scope.mycomment.date = new Date().toISOString();
 
       console.log($scope.mycomment);
 
       $scope.dish.comments.push($scope.mycomment);
-
       menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
 
       console.log($scope.dish.comments);
@@ -117,12 +115,13 @@ angular.module('confusionApp')
 
   }])
 
-// implement the IndexController and About Controller here
-
   .controller('IndexController', ['$scope', 'corporateFactory', 'menuFactory', function($scope, corporateFactory, menuFactory){
 
-    $scope.showDish = true;
+    $scope.showDish = false;
+    $scope.showPromotion = false;
+    $scope.showLeader = false;
     $scope.message="Loading ...";
+
     $scope.dish = menuFactory.getDishes().get({id:0})
       .$promise.then(
         function(response){
@@ -134,18 +133,6 @@ angular.module('confusionApp')
         }
       );
 
-    $scope.leader = corporateFactory.getLeader(3);
-
-    //$scope.promotion = menuFactory.getPromotion(0);
-
-    //menuFactory.getPromotion().query(
-    //  function(response) {
-    //    $scope.promotion = response;
-    //    //$scope.showMenu = true;
-    //  },
-    //  function(response) {
-    //    //$scope.message = "Error: "+response.status + " " + response.statusText;
-    //  });
 
     $scope.promotion = menuFactory.getPromotion().get({id:0})
       .$promise.then(
@@ -158,11 +145,32 @@ angular.module('confusionApp')
       }
     );
 
+    $scope.dish = corporateFactory.getLeaders().get({id:3})
+      .$promise.then(
+      function(response){
+        $scope.leader = response;
+        $scope.showLeader = true;
+      },
+      function(response) {
+        $scope.message = "Error: "+response.status + " " + response.statusText;
+      }
+    );
+
   }])
 
   .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory){
 
-    $scope.leaders = corporateFactory.getLeaders();
+    $scope.showLeaders = false;
+    $scope.dish = corporateFactory.getLeaders().query()
+      .$promise.then(
+      function(response){
+        $scope.leaders = response;
+        $scope.showLeaders = true;
+      },
+      function(response) {
+        $scope.message = "Error: "+response.status + " " + response.statusText;
+      }
+    );
 
   }])
 
